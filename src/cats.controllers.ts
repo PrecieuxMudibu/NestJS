@@ -1,14 +1,24 @@
-import { Controller, Get, Post, HttpCode } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Header,
+  Post,
+  HttpCode,
+  Redirect,
+} from '@nestjs/common';
 
 @Controller('cats')
 export class CatsController {
-  @Get()
-  findAll(): string {
-    return 'This action returns all cats';
-  }
+  //   @Get()
+  //   findAll(): string {
+  //     return 'This action returns all cats';
+  //   }
 
+  @Get()
+  @Redirect('https://nestjs.com', 301)
   @Post()
   @HttpCode(204)
+  @Header('Cache-Control', 'none')
   create(): string {
     return 'This action adds a new cat';
   }
