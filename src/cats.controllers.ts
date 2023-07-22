@@ -9,16 +9,14 @@ import {
 
 @Controller('cats')
 export class CatsController {
-  //   @Get()
-  //   findAll(): string {
-  //     return 'This action returns all cats';
-  //   }
-
   @Get()
-  @Redirect('https://nestjs.com', 301)
+  findAll(): string {
+    return 'This action returns all cats';
+  }
+
+  //   @Get()
+  //   @Redirect('https://nestjs.com', 301)
   @Post()
-  @HttpCode(204)
-  @Header('Cache-Control', 'none')
   create(): string {
     return 'This action adds a new cat';
   }
